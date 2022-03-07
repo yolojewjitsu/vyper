@@ -426,7 +426,7 @@ def parse_type(item, sigs, custom_structs):
                 custom_structs[item.id],
                 custom_structs,
             )
-        elif item.func.id == "immutable":
+        elif item.func.id in ("immutable", "transient"):
             if len(item.args) != 1:
                 # is checked earlier but just for sanity, verify
                 # immutable call is given only one argument

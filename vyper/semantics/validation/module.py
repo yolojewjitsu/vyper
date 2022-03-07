@@ -153,11 +153,12 @@ class ModuleNodeVisitor(VyperNodeVisitorBase):
             return
 
         is_constant, is_public, is_immutable = False, False, False
+
         annotation = node.annotation
         if isinstance(annotation, vy_ast.Call):
             # the annotation is a function call, e.g. `foo: constant(uint256)`
             call_name = annotation.get("func.id")
-            if call_name in ("constant", "public", "immutable"):
+            if call_name in ("constant", "public", "immutable", "transient"):
                 validate_call_args(annotation, 1)
                 if call_name == "constant":
                     # declaring a constant
@@ -170,6 +171,9 @@ class ModuleNodeVisitor(VyperNodeVisitorBase):
                     # generate function type and add to metadata
                     # we need this when builing the public getter
                     node._metadata["func_type"] = ContractFunction.from_AnnAssign(node)
+
+                # elif call_name == "transient":
+                #    node._metadata["transient"] = True
 
                 elif call_name == "immutable":
                     # declaring an immutable variable

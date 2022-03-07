@@ -173,6 +173,15 @@ class GlobalContext:
                 False,
                 is_immutable=True,
             )
+        elif self.get_call_func_name(item) == "transient":
+            typ = self.parse_type(item.annotation.args[0])
+            self._globals[item.target.id] = VariableRecord(
+                item.target.id,
+                len(self._globals),
+                typ,
+                False,
+                is_transient=True,
+            )
 
         elif isinstance(item.annotation, (vy_ast.Name, vy_ast.Call, vy_ast.Subscript)):
             typ = self.parse_type(item.annotation)
