@@ -56,7 +56,8 @@ def _global_version(version):
     # strip `.devN` suffix since it is not semver compatible
     # minor regex hack to avoid messing too much with setuptools-scm internals
     version_str = guess_next_dev_version(version)
-    return re.sub(r"\.dev\d+", "", version_str)
+    #return re.sub(r"\.dev\d+", "", version_str)
+    return "0.3.1"
 
 
 setup(
