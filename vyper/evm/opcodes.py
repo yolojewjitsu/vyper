@@ -88,8 +88,6 @@ OPCODES: OpcodeMap = {
     "CHAINID": (0x46, 0, 1, (None, None, 2)),
     "SELFBALANCE": (0x47, 0, 1, (None, None, 5)),
     "BASEFEE": (0x48, 0, 1, (None, None, None, 2)),
-    "TLOAD": (0x4E, 1, 1, 101),  # dummy gas prices and opcode values
-    "TSTORE": (0x4F, 2, 0, 102),  # dummy gas prices and opcode values
     "POP": (0x50, 1, 0, 2),
     "MLOAD": (0x51, 1, 1, 3),
     "MSTORE": (0x52, 2, 0, 3),
@@ -182,6 +180,8 @@ OPCODES: OpcodeMap = {
     "REVERT": (0xFD, 2, 0, 0),
     "INVALID": (0xFE, 0, 0, 0),
     "DEBUG": (0xA5, 1, 0, 0),
+    "TLOAD": (0xB3, 1, 1, 100),
+    "TSTORE": (0xB4, 2, 0, 100),
 }
 
 PSEUDO_OPCODES: OpcodeMap = {
