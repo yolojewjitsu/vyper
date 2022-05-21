@@ -7,7 +7,7 @@ Vyper
 #####
 
 Vyper is a contract-oriented, pythonic programming language that targets the `Ethereum Virtual Machine (EVM) <https://ethereum.org/learn/#ethereum-basics>`_.
-
+Вайпер это
 Principles and Goals
 ====================
 
